@@ -19,9 +19,9 @@ def is_EVEN(num):
 
 def is_PRIME(num):
     for i2 in range(2, num):
-        if not num % i2:
-            return False
-    return True
+        if num % i2 != 0:
+            return True
+    return False
 
 
 def filter_numbers(nums, factor):
