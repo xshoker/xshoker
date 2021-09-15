@@ -24,7 +24,7 @@ def is_PRIME(num):
     return True
 
 
- def filter_numbers(nums, factor):
+def filter_numbers(nums, factor):
     if factor == ODD:
         return list(filter(is_ODD, nums))
     if factor == EVEN:
