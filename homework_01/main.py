@@ -10,16 +10,16 @@ PRIME = "prime"
 
 
 def is_ODD(num):
-    return num % 2 == 0
+    return num % 2 != 0
 
 
 def is_EVEN(num):
-    return num % 2 != 0
+    return num % 2 == 0
 
 
 def is_PRIME(num):
     for i2 in range(2, num):
-        if num // i2:
+        if num % i2:
             return False
     return True
 
