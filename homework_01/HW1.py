@@ -10,4 +10,4 @@ def filter_numbers(*nums):
     print([i for i in EVEN if i % 2 != 0])
     return
 
-filter_numbers(1, 2, 3)
+filter_numbers(1, 2)
