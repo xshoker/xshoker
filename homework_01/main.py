@@ -8,30 +8,31 @@ EVEN = "even"
 PRIME = "prime"
 
 
-def is_ODD(num):
+def is_odd(num):
     return num % 2 != 0
 
 
-def is_EVEN(num):
+def is_even(num):
     return num % 2 == 0
 
 
-def is_PRIME(num):
-    for i2 in range(2, num):
-        if num % i2 == 0:
-            return False
+def is_prime(num):
     if num == 0:
         return False
-    return True
+    else:
+        for i2 in range(2, num):
+            if num % i2 == 0:
+                return False
+        return True
 
 
 def filter_numbers(nums, factor):
     if factor == ODD:
-        return list(filter(is_ODD, nums))
+        return list(filter(is_odd, nums))
     if factor == EVEN:
-        return list(filter(is_EVEN, nums))
+        return list(filter(is_even, nums))
     if factor == PRIME:
-        return list(filter(is_PRIME, nums))
+        return list(filter(is_prime, nums))
 
 
-# print(filter_numbers(list(range(0, 40)), PRIME))
+#print(filter_numbers(list(range(0, 40)), PRIME))
