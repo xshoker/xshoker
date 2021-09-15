@@ -19,9 +19,9 @@ def is_EVEN(num):
 
 def is_PRIME(num):
     for i2 in range(2, num):
-        if num % i2 != 0:
-            return True
-    return False
+        if num % i2 == 0:
+            return False
+    return True
 
 
 def filter_numbers(nums, factor):
@@ -33,4 +33,4 @@ def filter_numbers(nums, factor):
         return list(filter(is_PRIME, nums))
 
 
-#print(filter_numbers(list(range(0, 40)), ODD))
+#print(filter_numbers(list(range(0, 40)), PRIME))
