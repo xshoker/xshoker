@@ -19,7 +19,7 @@ def is_EVEN(num):
 
 def is_PRIME(num):
     for i2 in range(2, num):
-        if num % i2:
+        if not num % i2:
             return False
     return True
 
