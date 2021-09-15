@@ -20,6 +20,8 @@ def is_PRIME(num):
     for i2 in range(2, num):
         if num % i2 == 0:
             return False
+    if num == 0:
+        return False
     return True
 
 
@@ -32,4 +34,4 @@ def filter_numbers(nums, factor):
         return list(filter(is_PRIME, nums))
 
 
-#print(filter_numbers(list(range(0, 40)), PRIME))
+print(filter_numbers(list(range(0, 40)), PRIME))
