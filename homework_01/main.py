@@ -34,4 +34,4 @@ def filter_numbers(nums, factor):
         return list(filter(is_PRIME, nums))
 
 
-print(filter_numbers(list(range(0, 40)), PRIME))
+# print(filter_numbers(list(range(0, 40)), PRIME))
