@@ -3,9 +3,9 @@ def power_numbers(*nums):
     return [num**2 for num in nums]
 
 
-ODD = "odd"
-EVEN = "even"
-PRIME = "prime"
+# ODD = "odd"
+# EVEN = "even"
+# PRIME = "prime"
 
 
 def is_odd(num):
@@ -32,4 +32,7 @@ def filter_numbers(nums, factor):
         return list(filter(is_prime, nums))
 
 
-print(filter_numbers(list(range(0, 40)), PRIME))
+# print(filter_numbers(list(range(0, 50)), ODD))
+# print(filter_numbers(list(range(0, 50)), EVEN))
+# print(filter_numbers(list(range(0, 50)), PRIME))
+# print(power_numbers(1, 2, 3))
