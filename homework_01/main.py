@@ -23,6 +23,7 @@ def is_prime(num):
     return True
 
 
+
 def filter_numbers(nums, factor):
     if factor == ODD:
         return list(filter(is_odd, nums))
