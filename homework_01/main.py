@@ -17,13 +17,10 @@ def is_even(num):
 
 
 def is_prime(num):
-    if num == 0:
-        return False
-    else:
-        for i2 in range(2, num):
-            if num % i2 == 0:
-                return False
-        return True
+    for i2 in range(2, num):
+        if not num % i2:
+            return False
+    return True
 
 
 def filter_numbers(nums, factor):
@@ -35,4 +32,4 @@ def filter_numbers(nums, factor):
         return list(filter(is_prime, nums))
 
 
-#print(filter_numbers(list(range(0, 40)), PRIME))
+print(filter_numbers(list(range(0, 40)), PRIME))
