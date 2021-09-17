@@ -14,6 +14,7 @@ def is_prime(num):
             return False
     return True
 
+
 def filter_numbers(nums, factor):
     if factor == ODD:
         return list(filter(lambda x: x % 2 != 0, nums))
@@ -21,3 +22,6 @@ def filter_numbers(nums, factor):
         return list(filter(lambda x: x % 2 == 0, nums))
     if factor == PRIME:
         return list(filter(is_prime, nums))
+
+
+print(filter_numbers(list(range(50)), ODD))
