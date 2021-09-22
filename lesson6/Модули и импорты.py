@@ -21,5 +21,3 @@ except AttributeError:
     print('Dich')
 finally:
     f.close()
-
-if first < 10:
