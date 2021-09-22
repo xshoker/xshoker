@@ -1,2 +1,0 @@
-class IncorrectValueNumber(BaseException):
-    pass
