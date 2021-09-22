@@ -26,4 +26,4 @@ def filter_numbers(nums, factor):
         return list(filter(is_prime, nums))
 
 
-print(filter_numbers(list(range(50)), PRIME))
+# print(filter_numbers(list(range(50)), PRIME))
