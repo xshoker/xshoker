@@ -10,8 +10,10 @@ PRIME = "prime"
 
 def is_prime(num):
     for i2 in range(2, num):
-        if not num % i2:
+        if num % i2 == 0:
             return False
+    if num < 2:
+        return False
     return True
 
 
@@ -24,4 +26,4 @@ def filter_numbers(nums, factor):
         return list(filter(is_prime, nums))
 
 
-print(filter_numbers(list(range(50)), ODD))
+print(filter_numbers(list(range(50)), PRIME))
