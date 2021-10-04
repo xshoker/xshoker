@@ -4,10 +4,12 @@ from homework_02.exceptions import CargoOverload
 
 class Plane(Vehicle):
 
-    def __init__(self, weight, fuel, fuel_consumption):
+    def __init__(self, weight, fuel, fuel_consumption, max_cargo, cargo):
         self.weight = weight
         self.fuel = fuel
         self.fuel_consumption = fuel_consumption
+        self.max_cargo = max_cargo
+        self.cargo = cargo
 
     def load_cargo(self, cargo, max_cargo):
         self.max_cargo = max_cargo
