@@ -16,7 +16,8 @@ class Plane(Vehicle):
         self.cargo = cargo
 
     def remove_all_cargo(self):
-        self.cargo, old_cargo = 0, self.cargo
+        old_cargo = self.cargo
+        self.cargo = 0
         return old_cargo
 
 if __name__ == '__main__':
