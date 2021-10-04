@@ -7,6 +7,7 @@ class Plane(Vehicle):
     cargo = 0
 
     def __init__(self, max_cargo):
+        super().__init__(max_cargo)
         self.max_cargo = max_cargo
 
     def load_cargo(self, cargo):
