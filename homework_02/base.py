@@ -4,7 +4,7 @@ from homework_02.exceptions import LowFuelError, NotEnoughFuel, CargoOverload
 class Vehicle(LowFuelError):
 
     weight = int
-    started = bool
+    started = False
     fuel = int
     fuel_consumption = int
 
@@ -14,10 +14,10 @@ class Vehicle(LowFuelError):
         self.fuel_consumption = fuel_consumption
 
     def start(self):
-        if self.fuel <= 0:
-            raise LowFuelError
-        else:
+        if self.fuel > 0:
             self.started = True
+        else:
+            raise LowFuelError
 
     def move(self, distance):
         max_distance = self.fuel / self.fuel_consumption
