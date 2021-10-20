@@ -3,10 +3,10 @@ from homework_02.exceptions import LowFuelError, NotEnoughFuel, CargoOverload
 
 class Vehicle(LowFuelError):
 
-    weight = int
-    started = False
-    fuel = int
-    fuel_consumption = int
+    weight: int = 0
+    started: bool = False
+    fuel: int = 0
+    fuel_consumption: int = 0
 
     def __init__(self, weight, fuel, fuel_consumption):
         self.weight = weight
