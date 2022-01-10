@@ -1,3 +1,0 @@
-FASTAPI
-
-uvicorn
