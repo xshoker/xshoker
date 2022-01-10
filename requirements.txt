@@ -1,0 +1,5 @@
+pytest~=6.2.5
+docker~=5.0.2
+requests~=2.26.0
+fastapi~=0.70.0
+SQLAlchemy~=1.4.25
