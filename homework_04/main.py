@@ -38,7 +38,7 @@ async def fetch_posts():
             return await response.json()
 
 
-async def main_async():
+async def async_main():
     await create_tables()
     users, posts = await asyncio.gather(
         fetch_user(),
@@ -55,7 +55,7 @@ async def main_async():
 def main():
     if sys.platform == "win32":
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(main_async())
+    asyncio.run(async_main())
 
 if __name__ == '__main__':
     main()
