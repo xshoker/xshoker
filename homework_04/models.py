@@ -10,8 +10,7 @@
 
 import os
 from sqlalchemy.ext.asyncio import create_async_engine
-from sqlalchemy.ext.asyncio import async_scoped_session
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy import (
     Column,
     Integer,
@@ -22,8 +21,7 @@ from sqlalchemy import (
     DateTime,
     func
 )
-from sqlalchemy.ext.asyncio import AsyncSession
-from asyncio import current_task
+from sqlalchemy.ext.asyncio import async_scoped_session
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import declared_attr, InstrumentedAttribute
 from sqlalchemy.ext.declarative import declarative_base
@@ -37,9 +35,9 @@ engine = create_async_engine(
     echo=True,
 )
 
+
 #2 добавьте declarative base (свяжите с engine)
 class Base:
-
     @declared_attr
     def __tablename__(cls):
         return f"{cls.__name__.lower()}s"
@@ -62,17 +60,12 @@ Base = declarative_base(cls=Base, bind=engine)
 
 
 #3 создайте объект Session
-session_factory = sessionmaker(engine)
-async_session = sessionmaker(
-    engine,
-    expire_on_commit=False,
-    class_=AsyncSession,
-)
+session_factory = sessionmaker(bind=engine)
+Session = async_scoped_session(session_factory, scopefunc=scoped_session)
 
 #3 Добавьте модели User и Post, объявите поля:
 # для модели User обязательными являются name, username, email;
 # для модели Post обязательными являются user_id, title, body
-
 
 class TimestampMixin:
     created_at = Column(DateTime,
