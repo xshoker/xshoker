@@ -62,12 +62,13 @@ Base = declarative_base(cls=Base, bind=engine)
 
 
 #3 создайте объект Session
-session_factory = sessionmaker(bind=engine)
-Session = async_scoped_session(session_factory, current_task)
+session_factory = sessionmaker(engine)
+AsyncSession = async_scoped_session(session_factory, scopefunc=current_task)
 
 #3 Добавьте модели User и Post, объявите поля:
 # для модели User обязательными являются name, username, email;
 # для модели Post обязательными являются user_id, title, body
+
 
 class TimestampMixin:
     created_at = Column(DateTime,
