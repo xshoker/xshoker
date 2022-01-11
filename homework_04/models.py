@@ -10,6 +10,7 @@
 
 import os
 from sqlalchemy.ext.asyncio import create_async_engine
+from sqlalchemy.ext.asyncio import async_scoped_session
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy import (
     Column,
@@ -60,7 +61,7 @@ Base = declarative_base(cls=Base, bind=engine)
 
 #3 создайте объект Session
 session_factory = sessionmaker(bind=engine)
-Session = scoped_session(session_factory)
+Session = async_scoped_session(session_factory)
 
 #3 Добавьте модели User и Post, объявите поля:
 # для модели User обязательными являются name, username, email;
