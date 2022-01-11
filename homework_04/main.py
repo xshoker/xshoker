@@ -4,17 +4,12 @@ import sys
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
-from models import Base, engine, User, Post
+from models import Base, engine, User, Post, Session
 from jsonplaceholder_requests import USERS_DATA_URL, POSTS_DATA_URL
 from aiohttp import ClientSession
 
 # expire_on_commit=False will prevent attributes from being expired
 # after commit.
-async_session = sessionmaker(
-    engine,
-    expire_on_commit=False,
-    class_=AsyncSession,
-)
 
 
 async def create_tables():
@@ -44,7 +39,7 @@ async def async_main():
         fetch_user(),
         fetch_posts(),
     )
-    async with async_session() as session:
+    async with Session() as session:
         async with session.begin():
             for user in users:
                 session.add(User(id=user['id'], name=user['name'], username=user['username'], email=user['email']))

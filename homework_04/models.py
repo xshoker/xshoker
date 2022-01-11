@@ -10,7 +10,7 @@
 
 import os
 from sqlalchemy.ext.asyncio import create_async_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (
     Column,
     Integer,
@@ -26,7 +26,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.orm import declared_attr, InstrumentedAttribute
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
-from asyncio import current_task
+from sqlalchemy.ext.asyncio import AsyncSession
 
 #1 создайте алхимичный engine
 PG_CONN_URI = os.environ.get("SQLALCHEMY_PG_CONN_URI") or "postgresql+asyncpg://user:password@localhost/blog_app"
@@ -61,8 +61,7 @@ Base = declarative_base(cls=Base, bind=engine)
 
 
 #3 создайте объект Session
-session_factory = sessionmaker(bind=engine)
-Session = async_scoped_session(session_factory, scopefunc=current_task)
+Session = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 #3 Добавьте модели User и Post, объявите поля:
 # для модели User обязательными являются name, username, email;
