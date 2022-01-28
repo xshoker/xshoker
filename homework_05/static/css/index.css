@@ -1,0 +1,17 @@
+p {
+    font-size: 48px !important;
+    background-color: rgba(0, 0, 255, 0.1)
+}
+
+button {
+    margin: 1px 1px;
+    padding: 10px;
+    border-bottom: 5px double green;
+    border-right: 5px double green;
+}
+
+div {
+    margin: 1px;
+    padding: 1px;
+    border-top: 1px double red;
+}
