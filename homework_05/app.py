@@ -3,7 +3,7 @@ from flask import Flask
 from views.products import products_app
 
 app = Flask(__name__)
-app.register_blueprint(products_app, url_prefix="/products")
+app.register_blueprint(products_app, url_prefix="/about")
 
 
 @app.route("/")
