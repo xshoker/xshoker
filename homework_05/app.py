@@ -1,20 +1,21 @@
 from flask import Flask
-
-from views.products import products_app
+from flask import Blueprint, render_template, request, redirect, url_for
 
 app = Flask(__name__)
-app.register_blueprint(products_app, url_prefix="/about")
 
 
-@app.route("/")
-def root():
-    return '<h1>Hello, World!</h1>'
+@app.route("/", endpoint="back")
+def list_example():
+    return render_template(
+        "back.html",
+    )
 
 
-@app.route("/items/")
-@app.route("/items/<int:item_id>")
-def get_item_by_id(item_id=None):
-    return {'item_id': item_id}
+@app.route("/about/", endpoint="about")
+def text():
+    return render_template(
+        "about.html",
+    )
 
 
 if __name__=='__main__':
