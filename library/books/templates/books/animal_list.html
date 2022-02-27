@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ p_title }}</title>
+</head>
+<body>
+<h1>Hello!</h1>
+<ul>
+    <li>
+        <a href="/">Main</a>
+    </li>
+    <li>
+        <a href="/books/">Animals</a>
+    </li>
+    <li>
+        <a href="{% url 'books:genre_create'%}">New Genre</a>
+    </li>
+</ul>
+
+<div class="books-list">
+    <ul>
+        {% for item in object_list %}
+        <li>
+            {{ item }} <a href="{% url 'books:genre_update' item.kind_id %}">Update Genre</a>
+            {{ item.author }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">send mail</button>
+</form>
+<hr>
+{% if task_id %}
+    <a href="{% url 'status_view' task_id %}">{{ task_id }}</a>
+{% endif %}
+
+</body>
+</html>

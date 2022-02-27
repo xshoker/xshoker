@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About library</title>
+</head>
+<body>
+<h1>Best Library!</h1>
+    <li>
+        <a href="{% url 'books:index' %}">Main</a>
+    </li>
+<ul>
+    <li>
+        <a href = "/books/">
+            Animals
+        </a>
+    </li>
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">send mail</button>
+</form>
+<hr>
+{% if task_id %}
+<a href="{% url 'books:status_view' task_id %}">{{ task_id }}</a>
+{% endif  %}
+
+</body>
+</html>
